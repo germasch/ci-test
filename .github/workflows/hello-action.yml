@@ -1,0 +1,20 @@
+name: PSC CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  tests-cpu:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: cmake
+      run: cmake -S . -B build -DCMAKE_BUILD_TYPE=RelWithDebInfo -G Ninja
+    - name: build
+      run: cmake --build build
+    - name: test
+      run: cmake --build build -t test
