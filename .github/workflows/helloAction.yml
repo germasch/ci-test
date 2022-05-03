@@ -7,17 +7,13 @@ on:
     branches: [ main ]
 
 jobs:
-  - myjob:
+  myjob:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-#      - name: install cppunit
-#      run: sudo apt install -y libcppunit-dev
     - name: configure
-    run: ./configure
+      run: ./configure
     - name: make
-    run: make
+      run: make
     - name: run hello
-    run: ./hello
-#      - name: make test
-#      run: make test
+      run: ./hello
